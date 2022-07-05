@@ -1,0 +1,11 @@
+@mixin adaptive-value($prop, $start, $min, $option) {
+  $addSize: $start - $min;
+  @if $option == 1 {
+    #{$prop}: $start + px;
+    @media (max-width: #{$widthContainer+px}) {
+      #{$prop}: calc(#{$min + px} + #{$addSize} * ((100vw - 320px) / #{$widthContainer - 320}));
+    }
+  } @else {
+    #{$prop}: calc(#{$min + px} + #{$addSize} * ((100vw - 320px) / #{$widthContainer - 320}));
+  }
+}

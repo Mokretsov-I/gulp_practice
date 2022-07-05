@@ -1,0 +1,98 @@
+@use "sass:math";
+
+@import 'fonts';
+@import 'icons';
+@import 'mixins';
+
+$mainColor: #3a3a3a;
+$grayColor: #898989;
+$darkGrayColor: #616161;
+$orangeColor: #e89f71;
+
+$widthContainer: 1270;
+$minWidthContainer: 320;
+$md1: $widthContainer;
+$md2: 991.98;
+$md3: 767.98;
+$md4: 479.98;
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  background-color: #f9f1e7;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: 'Gilroy';
+  font-size: 16px;
+  color: $mainColor;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+button {
+  background: none;
+  border: none;
+  outline: none;
+}
+
+.wraper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+._container {
+  max-width: $widthContainer + px;
+  padding: 0 15px;
+  margin: 0 auto;
+}
+
+._ibg {
+  position: relative;
+}
+
+._ibg img {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  object-fit: cover;
+}
+
+@media (max-width: $md3+px) {
+  .spoiler-menu {
+    position: relative;
+    visibility: hidden;
+    opacity: 0;
+    transform: translate(0, -15%);
+    transition: transform 0.3s ease 0s;
+    height: 0;
+    padding: 0;
+  }
+  .spoiler-menu._active {
+    visibility: visible;
+    opacity: 1;
+    transform: translate(0, 0);
+    height: auto;
+    margin-top: 10px;
+  }
+}
+
+@import 'header';
+@import 'main';
+@import 'footer';
